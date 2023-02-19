@@ -1,0 +1,24 @@
+{
+  "name": "fullstack-sprint-1-cjn",
+  "version": "1.0.0",
+  "description": "This is the repo for our first full stack sprint of semester 3 . Group members Cameron D'amico, Nathan Greene, Jordan Kelloway",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CJN-Development/FullStack-Sprint-1-CJN.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CJN-Development/FullStack-Sprint-1-CJN/issues"
+  },
+  "homepage": "https://github.com/CJN-Development/FullStack-Sprint-1-CJN#readme",
+  "dependencies": {
+    "crc": "^4.3.2",
+    "date-fns": "^2.29.3",
+    "uuid": "^9.0.0"
+  }
+}
