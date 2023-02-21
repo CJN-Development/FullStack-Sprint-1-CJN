@@ -17,6 +17,7 @@ const path = require("path");
 
 const crc32 = require("crc/crc32");
 const { format } = require("date-fns");
+const { v4: uuidv4 } = require('uuid');
 
 const myArgs = process.argv.slice(2);
 
@@ -77,7 +78,8 @@ function newToken(username) {
 
   newToken.created = `${format(now, "yyyy-MM-dd HH:mm:ss")}`;
   newToken.username = username;
-  newToken.token = crc32(username).toString(16);
+  let randomString = uuidv4(); // generate a random string
+  newToken.token = crc32(username + randomString).toString(16);
   newToken.expires = `${format(expires, "yyyy-MM-dd HH:mm:ss")}`;
 
   fs.readFile(__dirname + "/json/tokens.json", "utf-8", (error, data) => {
