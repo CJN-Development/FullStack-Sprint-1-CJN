@@ -1,7 +1,81 @@
 <html lang="en">
-    <body>
-        <h2><a href="http://localhost:3000/new">New Token</a></h2>
-        <h2><a href="http://localhost:3000/count">Token Count</a></h2>
-        <a href="http://localhost:3000">[home]</a>
-    </body>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+    </style>
+  </head>
+  <body
+    style="
+      background: rgb(2, 0, 36);
+      background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(9, 9, 121, 1) 35%,
+        rgba(0, 212, 255, 1) 100%
+      );
+    "
+  >
+    <header style="background-color: black">
+      <h2
+        style="
+          color: white;
+          font-family: 'Poppins', sans-serif;
+          padding-left: 10px;
+        "
+      >
+        Token
+      </h2>
+    </header>
+    <h2
+      style="
+        display: flex;
+        justify-content: center;
+        margin-top: 5vh;
+        font-size: 30px;
+      "
+    >
+      <a
+        style="
+          text-decoration: none;
+          color: white;
+          font-family: 'Poppins', sans-serif;
+        "
+        href="http://localhost:3000/new"
+        >New Token</a
+      >
+    </h2>
+    <h2
+      style="
+        display: flex;
+        justify-content: center;
+        margin-top: 5vh;
+        font-size: 30px;
+      "
+      id="tokencount"
+    >
+      <a
+        style="
+          text-decoration: none;
+          color: white;
+          font-family: 'Poppins', sans-serif; ;
+        "
+        href="http://localhost:3000/count"
+        >Token Count</a
+      >
+    </h2>
+    <a
+      style="
+        text-decoration: none;
+        color: white;
+        display: flex;
+        justify-content: center;
+        margin-top: 5vh;
+        font-size: 15px;
+        font-family: 'Poppins', sans-serif; ;
+      "
+      class="home"
+      href="http://localhost:3000"
+      >[home]</a
+    >
+  </body>
 </html>
