@@ -1,11 +1,92 @@
 <!DOCTYPE html>
 <html>
+  <title>New User CJN App</title>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(9, 9, 121, 1) 35%,
+          rgba(0, 212, 255, 1) 100%
+        );
+
+        padding: 0;
+        margin: 0;
+
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        font-family: "Poppins", sans-serif;
+      }
+
+      form {
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+      }
+
+      h2 {
+        color: white;
+        font-weight: bolder;
+        font-size: 30px;
+        
+      }
+
+      form input {
+        padding: 10px;
+        width: 200px;
+        border-radius: 40px;
+        border-color: cadetblue;
+        margin-bottom: 16px;
+      }
+
+      form input:hover{
+        width: 300px;
+      }
+
+      form button {
+        padding: 10px;
+        width: 82px;
+        border-radius: 40px;
+      }
+
+      header{
+        text-align: left;
+        padding: 5px;
+
+      }
+
+      header a {
+        text-decoration: none;
+        color: white;
+      }
+
+      #heading{
+        padding-top: 10vh;
+      }
+    </style>
+  </head>
   <body>
-    add a new user:<br />
+    <header style="background-color: black">
+      <h2>
+        <a id="headerLink" class="home" href="http://localhost:3000">Token</a>
+      </h2>
+    </header>
+    <h2 id="heading">Enter A New User Below:</h2>
     <form action="/new" method="post">
       <input type="text" name="username" /><br />
       <button>Save</button>
     </form>
-    <a href="http://localhost:3000">[home]</a>
+    
   </body>
 </html>
