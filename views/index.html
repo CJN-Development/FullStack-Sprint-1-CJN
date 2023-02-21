@@ -1,29 +1,68 @@
+<!DOCTYPE html>
 <html lang="en">
+    <title>Home Page CJN App</title>
+   
   <head>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-    </style>
-  </head>
-  <body
-    style="
-      background: rgb(2, 0, 36);
+      *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body{
+        background: rgb(2, 0, 36);
       background: linear-gradient(
         90deg,
         rgba(2, 0, 36, 1) 0%,
         rgba(9, 9, 121, 1) 35%,
         rgba(0, 212, 255, 1) 100%
       );
-    "
+
+      padding: 0;
+      margin: 0;
+
+      }
+
+     a:hover{
+        font-size: 40px;
+     }
+
+     h2{
+        
+     }
+
+     header{
+        size: 48px;
+        font-size: 16px;
+        
+     }
+
+     #headerLink{
+        text-decoration: none;
+        color: white;
+        padding: 5;
+     }
+    </style>
+  </head>
+  <body
+   
   >
     <header style="background-color: black">
+
       <h2
         style="
           color: white;
           font-family: 'Poppins', sans-serif;
           padding-left: 10px;
         "
-      >
-        Token
+      > 
+      <a id="headerLink"
+    
+      class="home"
+      href="http://localhost:3000"
+      >Token</a>
       </h2>
     </header>
     <h2
@@ -40,6 +79,7 @@
           color: white;
           font-family: 'Poppins', sans-serif;
         "
+        
         href="http://localhost:3000/new"
         >New Token</a
       >
@@ -64,18 +104,10 @@
       >
     </h2>
     <a
-      style="
-        text-decoration: none;
-        color: white;
-        display: flex;
-        justify-content: center;
-        margin-top: 5vh;
-        font-size: 15px;
-        font-family: 'Poppins', sans-serif; ;
-      "
+    
       class="home"
       href="http://localhost:3000"
-      >[home]</a
+      ></a
     >
   </body>
 </html>

@@ -28,6 +28,14 @@ const server = http.createServer(async (req, res) => {
           res.write(`
                     <!doctype html>
                     <html>
+                    <head>
+                    <style>
+                    a{
+                      font-size: 32px;
+                    }
+                    </style>
+                   
+                    </head>
                     <body>
                         ${result.username} token is ${theToken} <br />
                         <a href="http://localhost:3000">[home]</a>
@@ -72,6 +80,7 @@ const server = http.createServer(async (req, res) => {
   }
 });
 server.listen(3000);
+console.log("Running on port 3000")
 
 function collectRequestData(request, callback) {
   const FORM_URLENCODED = "application/x-www-form-urlencoded";
