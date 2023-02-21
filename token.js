@@ -1,3 +1,12 @@
+/**
+ * Sprint One Full Stack Development
+ *
+ * Group: Cameron, Jordan, Nathan
+ *
+ * Semester: Winter 2023
+ *
+ */
+
 // Add logging to the CLI project by using eventLogging
 // load the logEvents module
 const logEvents = require("./logEvents");
@@ -17,7 +26,7 @@ const path = require("path");
 
 const crc32 = require("crc/crc32");
 const { format } = require("date-fns");
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 const myArgs = process.argv.slice(2);
 
@@ -224,7 +233,6 @@ var searchEmail = function (email) {
           if (DEBUG) console.log(`** Record for ${email} was found. **`);
           found = true;
           console.log(obj);
-          
         }
       });
     }
@@ -308,12 +316,12 @@ function tokenApp() {
       break;
     case "--searchPhone":
       if (DEBUG) console.log("token.searchToken()");
-         searchPhoneNum(myArgs[2])
+      searchPhoneNum(myArgs[2]);
       break;
 
     case "--searchEmail":
       if (DEBUG) console.log("token.searchEmail()");
-          searchEmail(myArgs[2])
+      searchEmail(myArgs[2]);
       break;
     case "--help":
     case "--h":
