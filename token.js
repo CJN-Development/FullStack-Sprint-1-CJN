@@ -144,8 +144,8 @@ function updateToken(argv) {
   });
 }
 
-var fetchRecord = function (username) {
-  if (DEBUG) console.log("token.fetchRecord()");
+var searchUsername = function (username) {
+  if (DEBUG) console.log("token.searchUsername()");
   var found = false;
   fs.readFile(__dirname + "/json/tokens.json", "utf-8", (error, data) => {
     if (error) console.log(error);
@@ -162,19 +162,88 @@ var fetchRecord = function (username) {
     if (found)
       myEmitter.emit(
         "log",
-        "token.fetchRecord()",
+        "token.searchUserName()",
         "INFO",
         `Token record for ${username} was displayed.`
       );
     else
       myEmitter.emit(
         "log",
-        "token.fetchRecord()",
+        "token.searchUsername()",
         "WARNING",
         `Record for ${username} was NOT found.`
       );
   });
   if (DEBUG) console.log(`Record for ${username} was = ${found}`);
+  return found;
+};
+
+var searchPhoneNum = function (phoneNumber) {
+  if (DEBUG) console.log("token.searchPhoneNumber()");
+  var found = false;
+  fs.readFile(__dirname + "/json/tokens.json", "utf-8", (error, data) => {
+    if (error) console.log(error);
+    else {
+      let tokens = JSON.parse(data);
+      tokens.forEach((obj) => {
+        if (obj.phone === phoneNumber) {
+          if (DEBUG) console.log(`** Record for ${phoneNumber} was found. **`);
+          console.log(obj);
+          found = true;
+        }
+      });
+    }
+    if (found)
+      myEmitter.emit(
+        "log",
+        "token.searchPhoneNumber()",
+        "INFO",
+        `Token record for ${phoneNumber} was displayed.`
+      );
+    else
+      myEmitter.emit(
+        "log",
+        "token.searchPhoneNumber()",
+        "WARNING",
+        `Record for ${phoneNumber} was NOT found.`
+      );
+  });
+  if (DEBUG) console.log(`Record for ${phoneNumber} was = ${found}`);
+  return found;
+};
+
+var searchEmail = function (email) {
+  if (DEBUG) console.log("token.searchEmail()");
+  var found = false;
+  fs.readFile(__dirname + "/json/tokens.json", "utf-8", (error, data) => {
+    if (error) console.log(error);
+    else {
+      let tokens = JSON.parse(data);
+      tokens.forEach((obj) => {
+        if (obj.email === email) {
+          if (DEBUG) console.log(`** Record for ${email} was found. **`);
+          found = true;
+          console.log(obj);
+          
+        }
+      });
+    }
+    if (found)
+      myEmitter.emit(
+        "log",
+        "token.searchEmail()",
+        "INFO",
+        `Token record for ${email} was displayed.`
+      );
+    else
+      myEmitter.emit(
+        "log",
+        "token.searchPhoneNumber()",
+        "WARNING",
+        `Record for ${email} was NOT found.`
+      );
+  });
+  if (DEBUG) console.log(`Record for ${email} was = ${found}`);
   return found;
 };
 
@@ -224,22 +293,27 @@ function tokenApp() {
         updateToken(myArgs);
       }
       break;
-    case "--fetch":
+    case "--searchUsername":
       if (myArgs.length < 3) {
-        console.log("invalid syntax. node myapp token --fetch [username]");
+        console.log("invalid syntax. node myapp token --search [username]");
         myEmitter.emit(
           "log",
-          "token.fetchRecord() --fetch",
+          "token.searchUsername --search",
           "WARNING",
           "invalid syntax, usage displayed"
         );
       } else {
-        fetchRecord(myArgs[2]);
+        searchUsername(myArgs[2]);
       }
       break;
-    case "--search":
+    case "--searchPhone":
       if (DEBUG) console.log("token.searchToken()");
-      //    searchToken();
+         searchPhoneNum(myArgs[2])
+      break;
+
+    case "--searchEmail":
+      if (DEBUG) console.log("token.searchEmail()");
+          searchEmail(myArgs[2])
       break;
     case "--help":
     case "--h":
@@ -255,5 +329,7 @@ module.exports = {
   tokenApp,
   newToken,
   tokenCount,
-  fetchRecord,
+  searchUsername,
+  searchPhoneNum,
+  searchEmail,
 };
