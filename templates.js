@@ -1,3 +1,12 @@
+/**
+ * Sprint One Full Stack Development
+ *
+ * Group: Cameron, Jordan, Nathan
+ *
+ * Semester: Winter 2023
+ *
+ */
+
 const folders = ["models", "views", "routes", "logs", "json"];
 
 const configjson = {
