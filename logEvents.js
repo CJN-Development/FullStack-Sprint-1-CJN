@@ -21,7 +21,7 @@ const path = require ('path');
 
 //  Defining the log event
 const logEvents = async (event, level,message) =>{
-    const dateTime = `${format(new Date(), 'yyyyMMdd\tHH:mm:ss')}`;
+const dateTime = `${format(new Date(), 'yyyyMMdd\tHH:mm:ss')}`;
 const logItem = `${dateTime}\t${level}\t${event}\t${message}\t${uuid()}`;
 if(DEBUG) console.log(logItem);
 

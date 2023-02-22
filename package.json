@@ -4,7 +4,7 @@
   "description": "This is the repo for our first full stack sprint of semester 3 . Group members Cameron D'amico, Nathan Greene, Jordan Kelloway",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "dependencies": {
     "crc": "^4.3.2",
     "date-fns": "^2.29.3",
+    "jest": "^29.4.3",
     "uuid": "^9.0.0",
     "uuidv4": "^6.2.13"
   }
