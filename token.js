@@ -315,13 +315,34 @@ function tokenApp() {
       }
       break;
     case "--searchPhone":
-      if (DEBUG) console.log("token.searchToken()");
-      searchPhoneNum(myArgs[2]);
+      if (DEBUG) console.log("token.searchPhone()");
+      if (myArgs.length < 3) {
+        console.log("invalid syntax. node myapp token --search [phonenumber]");
+        myEmitter.emit(
+          "log",
+          "token.searchPhonenumber --search",
+          "WARNING",
+          "invalid syntax, usage displayed"
+        );
+      } else {
+        searchPhoneNum(myArgs[2]);
+      }
       break;
+      
 
     case "--searchEmail":
       if (DEBUG) console.log("token.searchEmail()");
-      searchEmail(myArgs[2]);
+      if (myArgs.length < 3) {
+        console.log("invalid syntax. node myapp token --search [email]");
+        myEmitter.emit(
+          "log",
+          "token.searchEmail --search",
+          "WARNING",
+          "invalid syntax, usage displayed"
+        );
+      } else {
+        searchEmail(myArgs[2]);
+      }
       break;
     case "--help":
     case "--h":
