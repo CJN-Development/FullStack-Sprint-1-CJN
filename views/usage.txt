@@ -10,7 +10,7 @@ myapp init --mk                         creates the folder structure
 myapp init --cat                        creates the config file with default settings
 myapp config --show                     displays a list of the current config settings
 myapp config --reset                    resets the config file with default settings
-myapp config --set <config setting> <argument>  sets a specific config setting i.e --set username Jordan
+myapp config --set <option> <value>  sets a specific config setting i.e --set username Jordan
 myapp token --count                     displays a count of the tokens created
 myapp token --list                      list all the usernames with tokens
 myapp token --new <username>            generates a token for a given username, saves tokens to the json file
