@@ -27,6 +27,7 @@ const path = require("path");
 const crc32 = require("crc/crc32");
 const { format } = require("date-fns");
 const { v4: uuidv4 } = require("uuid");
+const { resolve } = require("path");
 
 const myArgs = process.argv.slice(2);
 
@@ -153,38 +154,49 @@ function updateToken(argv) {
   });
 }
 
+
 var searchUsername = function (username) {
   if (DEBUG) console.log("token.searchUsername()");
-  var found = false;
-  fs.readFile(__dirname + "/json/tokens.json", "utf-8", (error, data) => {
-    if (error) console.log(error);
-    else {
-      let tokens = JSON.parse(data);
-      tokens.forEach((obj) => {
-        if (obj.username === username) {
-          if (DEBUG) console.log(`** Record for ${username} was found. **`);
-          console.log(obj);
-          found = true;
-        }
-      });
-    }
-    if (found)
-      myEmitter.emit(
-        "log",
-        "token.searchUserName()",
-        "INFO",
-        `Token record for ${username} was displayed.`
-      );
-    else
-      myEmitter.emit(
-        "log",
-        "token.searchUsername()",
-        "WARNING",
-        `Record for ${username} was NOT found.`
-      );
+
+  return new Promise((resolve, reject) => {
+    var found = false;
+
+    fs.readFile(__dirname + "/json/tokens.json", "utf-8", (error, data) => {
+      if (error) {
+        console.log(error);
+        reject(error);
+      } else {
+        let tokens = JSON.parse(data);
+        tokens.forEach((obj) => {
+          if (obj.username === username) {
+            found = true;
+            if (DEBUG) console.log(`** Record for ${username} was found. **`);
+            console.log(obj);
+          }
+        });
+      }
+
+      if (found) {
+        myEmitter.emit(
+          "log",
+          "token.searchUserName()",
+          "INFO",
+          `Token record for ${username} was displayed.`
+        );
+        console.log(`Record has been found `)
+        resolve(found);
+      } else {
+        myEmitter.emit(
+          "log",
+          "token.searchUsername()",
+          "WARNING",
+          `Record for ${username} was NOT found.`
+        );
+        console.log(`searched record cannot be found `)
+        resolve(found);
+      }
+    });
   });
-  if (DEBUG) console.log(`Record for ${username} was = ${found}`);
-  return found;
 };
 
 var searchPhoneNum = function (phoneNumber) {
